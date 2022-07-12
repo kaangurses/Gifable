@@ -9,7 +9,6 @@ import UIKit
 
 final class GifView: UIView {
     private let gifView: UIImageView = .init()
-    private(set) var isAnimating: Bool = false
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -41,12 +40,10 @@ final class GifView: UIView {
 
     func startAnimating() {
         gifView.startAnimating()
-        isAnimating = true
     }
 
     func stopAnimating() {
         gifView.stopAnimating()
-        isAnimating = false
     }
 
     private func getAnimationPropertiesFromBundle(with name: String) -> (images: [UIImage]?, duration: Double) {
