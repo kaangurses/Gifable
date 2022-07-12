@@ -10,9 +10,11 @@
 		ADEE18C6287E05B400CCA67B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEE18C5287E05B400CCA67B /* AppDelegate.swift */; };
 		ADEE18C8287E05B400CCA67B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEE18C7287E05B400CCA67B /* SceneDelegate.swift */; };
 		ADEE18CA287E05B400CCA67B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEE18C9287E05B400CCA67B /* ViewController.swift */; };
-		ADEE18CD287E05B500CCA67B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADEE18CB287E05B500CCA67B /* Main.storyboard */; };
 		ADEE18CF287E05B600CCA67B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADEE18CE287E05B600CCA67B /* Assets.xcassets */; };
 		ADEE18D2287E05B600CCA67B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADEE18D0287E05B600CCA67B /* LaunchScreen.storyboard */; };
+		ADEE18DF287E0BE700CCA67B /* GifView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEE18DE287E0BE700CCA67B /* GifView.swift */; };
+		ADEE18E3287E11FA00CCA67B /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEE18E2287E11FA00CCA67B /* UIViewExtension.swift */; };
+		ADEE18EB287E2FBA00CCA67B /* blink_eyes.gif in Resources */ = {isa = PBXBuildFile; fileRef = ADEE18EA287E2FBA00CCA67B /* blink_eyes.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,10 +22,12 @@
 		ADEE18C5287E05B400CCA67B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADEE18C7287E05B400CCA67B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		ADEE18C9287E05B400CCA67B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		ADEE18CC287E05B500CCA67B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ADEE18CE287E05B600CCA67B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ADEE18D1287E05B600CCA67B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ADEE18D3287E05B600CCA67B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ADEE18DE287E0BE700CCA67B /* GifView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifView.swift; sourceTree = "<group>"; };
+		ADEE18E2287E11FA00CCA67B /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		ADEE18EA287E2FBA00CCA67B /* blink_eyes.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = blink_eyes.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +60,57 @@
 		ADEE18C4287E05B400CCA67B /* Gifable */ = {
 			isa = PBXGroup;
 			children = (
-				ADEE18C5287E05B400CCA67B /* AppDelegate.swift */,
-				ADEE18C7287E05B400CCA67B /* SceneDelegate.swift */,
-				ADEE18C9287E05B400CCA67B /* ViewController.swift */,
-				ADEE18CB287E05B500CCA67B /* Main.storyboard */,
-				ADEE18CE287E05B600CCA67B /* Assets.xcassets */,
-				ADEE18D0287E05B600CCA67B /* LaunchScreen.storyboard */,
-				ADEE18D3287E05B600CCA67B /* Info.plist */,
+				ADEE18D9287E0B3C00CCA67B /* App */,
+				ADEE18E0287E10ED00CCA67B /* Controller */,
+				ADEE18DA287E0B5000CCA67B /* Resource */,
+				ADEE18E1287E11EF00CCA67B /* Utilities */,
+				ADEE18DD287E0BC500CCA67B /* View */,
 			);
 			path = Gifable;
+			sourceTree = "<group>";
+		};
+		ADEE18D9287E0B3C00CCA67B /* App */ = {
+			isa = PBXGroup;
+			children = (
+				ADEE18C5287E05B400CCA67B /* AppDelegate.swift */,
+				ADEE18D0287E05B600CCA67B /* LaunchScreen.storyboard */,
+				ADEE18C7287E05B400CCA67B /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		ADEE18DA287E0B5000CCA67B /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				ADEE18CE287E05B600CCA67B /* Assets.xcassets */,
+				ADEE18EA287E2FBA00CCA67B /* blink_eyes.gif */,
+				ADEE18D3287E05B600CCA67B /* Info.plist */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		ADEE18DD287E0BC500CCA67B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ADEE18DE287E0BE700CCA67B /* GifView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ADEE18E0287E10ED00CCA67B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				ADEE18C9287E05B400CCA67B /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		ADEE18E1287E11EF00CCA67B /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				ADEE18E2287E11FA00CCA67B /* UIViewExtension.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,8 +172,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADEE18D2287E05B600CCA67B /* LaunchScreen.storyboard in Resources */,
+				ADEE18EB287E2FBA00CCA67B /* blink_eyes.gif in Resources */,
 				ADEE18CF287E05B600CCA67B /* Assets.xcassets in Resources */,
-				ADEE18CD287E05B500CCA67B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,7 +184,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADEE18E3287E11FA00CCA67B /* UIViewExtension.swift in Sources */,
 				ADEE18CA287E05B400CCA67B /* ViewController.swift in Sources */,
+				ADEE18DF287E0BE700CCA67B /* GifView.swift in Sources */,
 				ADEE18C6287E05B400CCA67B /* AppDelegate.swift in Sources */,
 				ADEE18C8287E05B400CCA67B /* SceneDelegate.swift in Sources */,
 			);
@@ -147,14 +195,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		ADEE18CB287E05B500CCA67B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				ADEE18CC287E05B500CCA67B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		ADEE18D0287E05B600CCA67B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -216,7 +256,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -270,7 +310,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -288,12 +328,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Gifable/Info.plist;
+				INFOPLIST_FILE = Gifable/Resource/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -315,12 +356,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Gifable/Info.plist;
+				INFOPLIST_FILE = Gifable/Resource/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
