@@ -17,7 +17,7 @@ final class ViewController: UIViewController {
     }
 
     private func setupView() {
-        let customGifView = GifView()
+        let customGifView = GifView(frame: CGRect(x: 0.0, y: 0.0, width: 80.0, height: 60.0))
         view.addSubview(customGifView)
         customGifView.setConstraints(width: 80.0, height: 60.0, centerX: view.centerXAnchor, centerY: view.centerYAnchor)
         customGifView.setGifFromAssets(with: "smile")

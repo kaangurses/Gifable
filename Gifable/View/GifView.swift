@@ -27,14 +27,12 @@ final class GifView: UIView {
 
     func setGifFromBundle(with name: String) {
         let properties = getAnimationPropertiesFromBundle(with: name)
-        gifView.animationImages = properties.images
-        gifView.animationDuration = properties.duration
+        setProperties(images: properties.images, duration: properties.duration)
     }
 
     func setGifFromAssets(with name: String) {
         let properties = getAnimationPropertiesFromAssets(with: name)
-        gifView.animationImages = properties.images
-        gifView.animationDuration = properties.duration
+        setProperties(images: properties.images, duration: properties.duration)
     }
 
     func startAnimating() {
@@ -43,6 +41,11 @@ final class GifView: UIView {
 
     func stopAnimating() {
         gifView.stopAnimating()
+    }
+
+    private func setProperties(images: [UIImage], duration: Double) {
+        gifView.animationImages = images
+        gifView.animationDuration = duration
     }
 
     private func getAnimationPropertiesFromBundle(with name: String) -> (images: [UIImage], duration: Double) {
@@ -62,8 +65,11 @@ final class GifView: UIView {
         var duration: Double = 0.0
         var images = [UIImage]()
         let imageCount = CGImageSourceGetCount(source)
+        let options = [kCGImageSourceThumbnailMaxPixelSize: frame.size.width,
+                      kCGImageSourceShouldCacheImmediately: true,
+              kCGImageSourceCreateThumbnailFromImageAlways: true] as CFDictionary
         for i in 0..<imageCount {
-            if let image = CGImageSourceCreateImageAtIndex(source, i, nil) {
+            if let image = CGImageSourceCreateThumbnailAtIndex(source, i, options) {
                 images.append(UIImage(cgImage: image))
             }
             if let properties: NSDictionary = CGImageSourceCopyPropertiesAtIndex(source, i, nil),
