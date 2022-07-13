@@ -23,7 +23,6 @@ final class GifView: UIView {
     private func setup() {
         addSubview(gifView)
         gifView.fillSuperView()
-        gifView.clipsToBounds = true
     }
 
     func setGifFromBundle(with name: String) {
@@ -46,22 +45,20 @@ final class GifView: UIView {
         gifView.stopAnimating()
     }
 
-    private func getAnimationPropertiesFromBundle(with name: String) -> (images: [UIImage]?, duration: Double) {
-        guard let path = Bundle.main.path(forResource: name, ofType: "gif") else { return (nil, 0.0) }
+    private func getAnimationPropertiesFromBundle(with name: String) -> (images: [UIImage], duration: Double) {
+        guard let path = Bundle.main.path(forResource: name, ofType: "gif") else { return ([], 0.0) }
         let url = URL(fileURLWithPath: path)
-        guard let gifData = try? Data(contentsOf: url),
-              let source = CGImageSourceCreateWithData(gifData as CFData, nil) else { return (nil, 0.0) }
-
-        return createUIImageArray(source)
+        guard let gifData = try? Data(contentsOf: url) else { return ([], 0.0) }
+        return createUIImageArray(with: gifData as CFData)
     }
 
-    private func getAnimationPropertiesFromAssets(with name: String) -> (images: [UIImage]?, duration: Double) {
-        guard let asset = NSDataAsset(name: name),
-              let source = CGImageSourceCreateWithData(asset.data as CFData, nil) else { return (nil, 0) }
-        return createUIImageArray(source)
+    private func getAnimationPropertiesFromAssets(with name: String) -> (images: [UIImage], duration: Double) {
+        guard let asset = NSDataAsset(name: name) else { return ([], 0.0) }
+        return createUIImageArray(with: asset.data as CFData)
     }
 
-    private func createUIImageArray(_ source: CGImageSource) -> (images: [UIImage]?, duration: Double) {
+    private func createUIImageArray(with data: CFData) -> (images: [UIImage], duration: Double) {
+        guard let source = CGImageSourceCreateWithData(data, nil) else { return ([], 0) }
         var duration: Double = 0.0
         var images = [UIImage]()
         let imageCount = CGImageSourceGetCount(source)
